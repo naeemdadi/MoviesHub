@@ -70,37 +70,18 @@ const MovieDetail = ({ navigation, route }) => {
 
   const renderPosterSection = () => {
     return (
-      <ImageBackground
+      <Image
         source={{
           uri:
             "https://image.tmdb.org/t/p/original/" +
             selectedMovie?.backdrop_path,
         }}
-        resizeMode="cover"
         style={{
           width: SIZES.width,
           height: SIZES.height < 700 ? SIZES.height * 0.5 : SIZES.height * 0.6,
         }}
-      >
-        <TouchableOpacity
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            width: 50,
-            height: 50,
-            borderRadius: 20,
-            marginTop: SIZES.padding,
-            marginLeft: SIZES.padding,
-            backgroundColor: COLORS.transparentBlack,
-          }}
-          onPress={() => navigation.goBack()}
-        >
-          <Image
-            source={icons.left_arrow}
-            style={{ width: 20, height: 20, tintColor: COLORS.white }}
-          />
-        </TouchableOpacity>
-      </ImageBackground>
+        resizeMode="cover"
+      />
     );
   };
 
@@ -140,8 +121,9 @@ const MovieDetail = ({ navigation, route }) => {
     <ScrollView
       contentContainerStyle={{
         backgroundColor: COLORS.black,
-        flex: 1,
+        // flex: 1,
         flexGrow: 1,
+        position: "relative",
       }}
     >
       {renderPosterSection()}
